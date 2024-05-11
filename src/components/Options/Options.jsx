@@ -1,10 +1,35 @@
 import css from "./Options.module.css";
 
-function Options({ type, onClick }) {
+function Options({ handleFeedback, handleReset, total }) {
   return (
-    <button className={css.btn} onClick={() => onClick(type)}>
-      {type}
-    </button>
+    <>
+      <button
+        type="button"
+        className={css.btn}
+        onClick={() => handleFeedback("good")}
+      >
+        Good
+      </button>
+      <button
+        type="button"
+        className={css.btn}
+        onClick={() => handleFeedback("neutral")}
+      >
+        Neutral
+      </button>
+      <button
+        type="button"
+        className={css.btn}
+        onClick={() => handleFeedback("bad")}
+      >
+        Bad
+      </button>
+      {total !== 0 && (
+        <button className={css.btn} type="button" onClick={handleReset}>
+          Reset
+        </button>
+      )}
+    </>
   );
 }
 

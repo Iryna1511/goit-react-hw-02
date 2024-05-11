@@ -39,12 +39,11 @@ function App() {
   return (
     <div className={css.container}>
       <Description />
-      <div>
-        <Options type="good" onClick={handleFeedback} />
-        <Options type="neutral" onClick={handleFeedback} />
-        <Options type="bad" onClick={handleFeedback} />
-        {totalFeedback !== 0 && <Options type="reset" onClick={handleReset} />}
-      </div>
+      <Options
+        total={totalFeedback}
+        handleFeedback={handleFeedback}
+        handleReset={handleReset}
+      />
       {totalFeedback !== 0 ? (
         <Feedback
           feedback={feedback}
